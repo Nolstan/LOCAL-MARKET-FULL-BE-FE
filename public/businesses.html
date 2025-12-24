@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | Local Businesses</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="products-page">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fas fa-shopping-bag"></i></span>
+                Store<span>Sync</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Shop</a>
+                <a href="businesses.html" class="active">Businesses</a>
+                <a href="login.html" class="btn-login">Partner Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="products-hero">
+        <div class="hero-content">
+            <h1>Meet Our Local Partners</h1>
+            <p>Discover the amazing businesses that make our community vibrant.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loading" class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading businesses...</p>
+        </div>
+
+        <div id="businessGrid" class="business-grid">
+            <!-- Businesses will be injected here -->
+        </div>
+
+        <div id="noBusinesses" class="no-products hidden">
+            <i class="fas fa-store-slash"></i>
+            <h3>No businesses found</h3>
+            <p>We're working on adding more local partners.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 StoreSync Marketplace. All rights reserved.</p>
+    </footer>
+
+    <script src="businesses.js"></script>
+</body>
+
+</html>
