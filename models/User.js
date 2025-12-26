@@ -38,9 +38,14 @@ const userSchema = new mongoose.Schema({
     },
     logo: String,
     bio: String,
-    isActive: {
+    isBanned: {
         type: Boolean,
-        default: true,
+        default: false,
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
     },
 }, {
     timestamps: true,

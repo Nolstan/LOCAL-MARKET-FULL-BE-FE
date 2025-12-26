@@ -5,7 +5,7 @@ const { protect } = require('../middleware/authMiddleware');
 
 router.post('/', createBusiness);
 router.get('/', getBusinesses);
-router.get('/:id', getBusiness);
+router.get('/:id', protect, getBusiness);
 router.put('/status', protect, updateStatus);
 
 module.exports = router;

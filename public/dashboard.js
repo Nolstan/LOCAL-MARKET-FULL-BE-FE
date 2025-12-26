@@ -37,6 +37,12 @@ async function init() {
 async function loadShopDetails() {
     try {
         const response = await fetch(`${API_URL}/business/${shopId}`);
+        if (response.status === 403) {
+            alert('Your account is banned. Please contact your service provider.');
+            localStorage.clear();
+            window.location.href = 'login.html';
+            return;
+        }
         const data = await response.json();
         if (data.success) {
             shopNameDisplay.innerText = data.data.businessName;
@@ -283,7 +289,7 @@ window.onclick = (e) => {
 
 document.getElementById('logoutBtn').onclick = () => {
     localStorage.removeItem('shopId');
-localStorage.removeItem('token');
+    localStorage.removeItem('token');
     localStorage.removeItem('businessName');
     window.location.href = 'index.html';
 };
