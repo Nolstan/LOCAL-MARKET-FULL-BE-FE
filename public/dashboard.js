@@ -157,7 +157,7 @@ productForm.addEventListener('submit', async (e) => {
     formData.append('name', document.getElementById('name').value);
     formData.append('price', document.getElementById('price').value);
     formData.append('description', document.getElementById('description').value);
-    formData.append('businessId', shopId); // Crucial: Link product to shop
+    formData.append('businessId', shopId); 
 
     const imageFile = document.getElementById('image').files[0];
     if (imageFile) {
@@ -208,13 +208,10 @@ productForm.addEventListener('submit', async (e) => {
  * Open Modal for Edit
  */
 window.editProduct = async (id) => {
-    // In a real app, fetch single product. For now, find in local list or just set form
-    // Let's at least set the ID and change title
+   
     document.getElementById('productId').value = id;
     modalTitle.innerText = 'Edit Product';
 
-    // Quick hack: find product in table and populate basics
-    // Real improvement: Fetch GET /api/products/:id (if implemented)
     modal.style.display = 'flex';
 };
 
@@ -316,7 +313,7 @@ async function updateActiveStatus(isActive) {
 
         const data = await response.json();
         if (data.success) {
-            // Maybe show a small notification/toast in a real app
+         
             console.log('Status updated successfully');
         } else {
             // Revert the toggle if the update fails

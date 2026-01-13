@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please add a password'],
         minlength: 6,
-        select: false, // Don't return password by default
+        select: false, 
     },
     location: {
         type: String,
@@ -38,6 +38,10 @@ const userSchema = new mongoose.Schema({
     },
     logo: String,
     bio: String,
+    isActive: {
+        type: Boolean,
+        default: true,
+    },
     isBanned: {
         type: Boolean,
         default: false,
@@ -51,7 +55,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
 });
 
-// Encrypt password using bcrypt
+
 // Encrypt password using bcrypt
 userSchema.pre('save', async function () {
     if (!this.isModified('password')) {

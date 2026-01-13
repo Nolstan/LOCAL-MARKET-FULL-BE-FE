@@ -49,11 +49,11 @@ businessForm.addEventListener('submit', async (e) => {
                 window.location.href = 'dashboard.html';
             }, 1000);
         } else {
-            formMessage.innerHTML = `<div class="error">❌ ${data.error || 'Failed to create profile.'}</div>`;
+            formMessage.innerHTML = `<div class="error">${data.error || 'Failed to create profile.'}</div>`;
         }
     } catch (error) {
         console.error('Error:', error);
-        formMessage.innerHTML = '<div class="error">❌ Connection error.</div>';
+        formMessage.innerHTML = '<div class="error">Connection error.</div>';
     } finally {
         submitBtn.innerText = originalBtnText;
         submitBtn.disabled = false;

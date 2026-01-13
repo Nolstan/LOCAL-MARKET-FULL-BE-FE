@@ -28,7 +28,7 @@ loginForm.addEventListener('submit', async (e) => {
         const data = await response.json();
 
         if (response.ok) {
-            loginMessage.innerHTML = `<div class="success">✅ Login Successful! Redirecting...</div>`;
+            loginMessage.innerHTML = `<div class="success"> Login Successful! Redirecting...</div>`;
 
             // Store token and details
             localStorage.setItem('token', data.token);
@@ -45,23 +45,22 @@ loginForm.addEventListener('submit', async (e) => {
                 }
             }, 1000);
         } else {
-            loginMessage.innerHTML = `<div class="error">❌ ${data.error || 'Invalid credentials'}</div>`;
+            loginMessage.innerHTML = `<div class="error"> ${data.error || 'Invalid credentials'}</div>`;
             submitBtn.innerText = originalText;
             submitBtn.disabled = false;
         }
     } catch (error) {
         console.error('Login error:', error);
-        loginMessage.innerHTML = `<div class="error">❌ Connection error. Is the server running?</div>`;
+        loginMessage.innerHTML = `<div class="error"> Connection error. Is the server running?</div>`;
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
     }
 });
 
-// Check if already logged in (Optional: could show a "Already logged in as..." message instead of raw redirect)
+// Check if already logged in 
 window.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
 
-    // We remove the auto-redirect here to allow users to switch accounts if they want.
-    // If you want auto-redirect, you can re-enable it or add a "Logout" link.
+
 });

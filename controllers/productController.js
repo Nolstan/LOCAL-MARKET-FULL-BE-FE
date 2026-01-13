@@ -87,7 +87,7 @@ exports.getProduct = async (req, res) => {
     try {
         const product = await Product.findById(req.params.id).populate({
             path: 'businessId',
-            select: '_id businessName ownerName location contactInfo bio'
+            select: '_id businessName ownerName location contactInfo bio isActive'
         });
 
         // Check if product exists and if the business is NOT banned (or handle if business is null)
